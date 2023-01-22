@@ -4,7 +4,8 @@ public class EmailValidador extends Validador {
 
     String mensaje = " el formato del email es invalido";
 
-    private final  static String EMAIL_REGEX = "^(.+)@(.+)$";
+    private final static String EMAIL_REGEX = "^(.+)@(.+)$";
+
     @Override
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;

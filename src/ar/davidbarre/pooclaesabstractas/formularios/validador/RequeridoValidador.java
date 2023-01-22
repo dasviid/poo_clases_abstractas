@@ -1,8 +1,9 @@
 package ar.davidbarre.pooclaesabstractas.formularios.validador;
 
-public class RequeridoValidador  extends  Validador{
+public class RequeridoValidador extends Validador {
 
-   protected String mensaje= "el campo es requerido";
+    protected String mensaje = "el campo es requerido";
+
     @Override
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
@@ -16,6 +17,6 @@ public class RequeridoValidador  extends  Validador{
 
     @Override
     public boolean esValido(String valor) {
-        return (valor != null && valor.length() > 0 );
+        return (valor != null && valor.length() > 0);
     }
 }

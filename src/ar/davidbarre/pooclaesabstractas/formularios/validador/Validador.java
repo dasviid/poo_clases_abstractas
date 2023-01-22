@@ -2,10 +2,11 @@ package ar.davidbarre.pooclaesabstractas.formularios.validador;
 
 abstract public class Validador {
 
-    protected  String mensaje;
+    protected String mensaje;
 
-   abstract public void  setMensaje(String mensaje);
-   abstract public String  getMensaje();
+    abstract public void setMensaje(String mensaje);
 
-    abstract public  boolean esValido(String valor);
+    abstract public String getMensaje();
+
+    abstract public boolean esValido(String valor);
 }

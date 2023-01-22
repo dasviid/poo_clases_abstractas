@@ -27,7 +27,7 @@ public class EjemploForm {
         ElementoForm saludar = new ElementoForm("saludo") {
             @Override
             public String dibujarHtml() {
-                return "< input disable name= \" " +this.nombre + " \" value=\"" + valor + "\">";
+                return "< input disable name= \" " + this.nombre + " \" value=\"" + valor + "\">";
             }
         };
 
