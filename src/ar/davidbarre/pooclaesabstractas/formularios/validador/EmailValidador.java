@@ -2,7 +2,7 @@ package ar.davidbarre.pooclaesabstractas.formularios.validador;
 
 public class EmailValidador extends Validador {
 
-    String mensaje = " el formato del email es invalido";
+    String mensaje = " el formato %s tiene un formato de correo invalido";
 
     private final static String EMAIL_REGEX = "^(.+)@(.+)$";
 

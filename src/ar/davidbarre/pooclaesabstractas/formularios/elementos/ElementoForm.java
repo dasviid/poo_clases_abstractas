@@ -1,6 +1,8 @@
 package ar.davidbarre.pooclaesabstractas.formularios.elementos;
 
+import ar.davidbarre.pooclaesabstractas.formularios.validador.LargoValidador;
 import ar.davidbarre.pooclaesabstractas.formularios.validador.Validador;
+import ar.davidbarre.pooclaesabstractas.formularios.validador.mensaje.MensajeFormateable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,7 @@ abstract public class ElementoForm {
         return this;
     }
 
+
     public void setValor(String valor) {
         this.valor = valor;
     }
@@ -40,7 +43,11 @@ abstract public class ElementoForm {
     public boolean esValido() {
         for (Validador v : validadores) {
             if (!v.esValido(valor)) {
-                this.errores.add(v.getMensaje());
+                if (v instanceof MensajeFormateable) {
+                    this.errores.add(((MensajeFormateable) v).getMensajeFormateado(nombre));
+                } else {
+                    this.errores.add(String.format(v.getMensaje(), nombre));
+                }
             }
         }
         return this.errores.isEmpty();

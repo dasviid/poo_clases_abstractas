@@ -1,7 +1,8 @@
 package ar.davidbarre.pooclaesabstractas.formularios.validador;
 
 public class NumeroValidador extends Validador {
-    protected String mensaje = "el campo debe ser un numero";
+
+    protected String mensaje = "el campo %s debe ser un número";
 
     @Override
     public void setMensaje(String mensaje) {
@@ -18,7 +19,7 @@ public class NumeroValidador extends Validador {
         try {
             Integer.parseInt(valor);
             return true;
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             return false;
 
         }

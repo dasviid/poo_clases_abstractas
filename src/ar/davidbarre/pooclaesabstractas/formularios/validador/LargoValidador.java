@@ -1,7 +1,9 @@
 package ar.davidbarre.pooclaesabstractas.formularios.validador;
 
-public class LargoValidador extends Validador {
-    protected String mensaje = "el campo debe tener minimo %d caracteres y maximo %d caracteres";
+import ar.davidbarre.pooclaesabstractas.formularios.validador.mensaje.MensajeFormateable;
+
+public class LargoValidador extends Validador implements MensajeFormateable {
+    protected String mensaje = "el campo %s debe tener minimo %d caracteres y maximo %d caracteres";
     private int minimo;
     private int maximo = Integer.MAX_VALUE;
 
@@ -28,16 +30,22 @@ public class LargoValidador extends Validador {
 
     @Override
     public String getMensaje() {
-        return null;
+        return mensaje;
     }
 
     @Override
     public boolean esValido(String valor) {
-        this.mensaje = String.format(this.mensaje, this.minimo, this.maximo);
+        //  this.mensaje = String.format(this.mensaje, this.minimo, this.maximo);
         if (valor == null) {
             return true;
         }
         int largo = valor.length();
         return (largo >= minimo && largo <= maximo);
+    }
+
+
+    @Override
+    public String getMensajeFormateado(String campo) {
+        return this.mensaje = String.format(this.mensaje, campo, this.minimo, this.maximo);
     }
 }
